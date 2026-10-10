@@ -1,0 +1,51 @@
+﻿UHII DATASET FINAL AUDIT
+Generated: 2026-10-09 23:53:32
+Source folder: C:\Users\Mertc\OneDrive\Masaüstü\urban-heat-transfer\data\UHII_dataset
+Reports folder: C:\Users\Mertc\OneDrive\Masaüstü\urban-heat-transfer\data\audit_reports
+
+OVERALL TECHNICAL STATUS
+PASS: no structural, ID, coverage or non-NA numeric anomalies were detected by this audit.
+This is a technical data-quality audit, not proof of scientific validity or causal interpretation.
+
+REFERENCE / MAPPING
+CityInfo.csv rows=10196; unique IDs=10196; blank IDs=0; duplicate ID rows=0.
+CityInfo_with_Country.csv rows=10196; unique IDs=10196; blank IDs=0; duplicate ID rows=0.
+IDs only in mapping=0; IDs only in CityInfo=0; coordinate/area mismatch cells=0 (compared=30588; comparison available=True).
+Country labels: China=1441; Türkiye=180; blank=83; other countries=8492.
+
+FILES / STRUCTURE
+CSV files found=5372; expected=5372.
+Wrong row-count files=0; required-column problem files=0; malformed header/empty-file issues=0; malformed rows=0; read errors=0.
+Duplicate ID rows=0; blank IDs=0; distinct unknown IDs summed across files=0; missing expected IDs summed across files=0.
+Country-count mismatch issue records=0; filename/combination issues=0; incomplete indicator-year-period coverage groups=0.
+
+MEASUREMENT CELLS
+Non-NA blank + other-invalid + non-finite cells=0. NA is reported separately and is not converted to zero.
+Intensity_EA: valid numeric=54563834; NA=209078; blank=0; other non-numeric=0; non-finite=0.
+Intensity_IEA: valid numeric=54560493; NA=212419; blank=0; other non-numeric=0; non-finite=0.
+Intensity_MEA: valid numeric=54560204; NA=212708; blank=0; other non-numeric=0; non-finite=0.
+Intensity_DEA: valid numeric=54557592; NA=215320; blank=0; other non-numeric=0; non-finite=0.
+
+COUNTRY-SPECIFIC NA COUNTS
+China: NA=38650 / 30964208 checked cells; rate=0.124822%; files with at least one NA=875.
+Türkiye: NA=1515 / 3867840 checked cells; rate=0.039169%; files with at least one NA=12.
+
+COVERAGE CONFIGURATION
+The audit checks monthly codes 1-12, seasonal codes 21-24 and annual code 30 for Day/Nig files.
+Configured year ranges: Mod1/Mod2 2001-2021; AMod2/SAT/SMod2 2001-2020; Myd1/Myd2 2003-2021; SMyd1 2003-2020.
+Coverage groups not complete=0. These configured ranges are based on the existing project scan; verify them against source documentation before publication.
+
+SCIENTIFIC LIMITATIONS / NEXT DECISIONS
+1. NA counts do not explain why observations are missing. Do not replace NA with zero without source-based justification.
+2. Value ranges are descriptive across overlapping monthly, seasonal and annual files; they are not independent observations.
+3. Country mapping and the 1,441/180 sample define the current main sample only. Keep the 83 previously noted unlabeled records and any boundary cases outside the main comparison unless independently resolved.
+4. After reviewing any flagged issues, lock common indicator/year/method combinations and document the selection rules before ML; prevent target leakage and use spatially defensible validation.
+
+OUTPUT FILES
+UHII_Final_Mapping_Audit.csv
+UHII_Final_File_Audit.csv
+UHII_Final_Country_NA_Audit.csv
+UHII_Final_Coverage_Audit.csv
+UHII_Final_Audit_Issues.csv
+UHII_Final_Value_Ranges.csv
+UHII_Final_Audit_Summary.txt

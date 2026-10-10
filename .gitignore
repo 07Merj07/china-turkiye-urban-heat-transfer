@@ -1,0 +1,45 @@
+
+# Python environments and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Editor / operating system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local secrets and environment settings
+.env
+.env.*
+!.env.example
+
+# Full source dataset (download separately from the official Figshare page)
+data/UHII_dataset/
+
+# Large local dataset archives
+data/*.zip
+data/*.rar
+data/*.7z
+
+# Redundant local example copy
+data/AMod2_Day_2001_30.csv
+
+# Temporary troubleshooting files
+data/write_test.txt
+data/export_test.csv
+data/UHII_quality_test.csv
+data/UHII_numeric_quality_test.csv
+data/UHII_numeric_quality_test10.csv
+
+# Superseded reports in the data root
+data/UHII_quality_report.csv
+data/UHII_country_NA_report.csv
+data/UHII_numeric_quality_report.csv
+
+# General temporary artifacts
+*.tmp
+*.log
+*.bak
