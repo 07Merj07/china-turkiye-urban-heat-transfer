@@ -1,0 +1,2 @@
+source_file_owner_upload,canonical_file_used,owner_rows,canonical_rows,same_columns,same_row_values_exact,owner_unique_UrbanId,canonical_unique_UrbanId,decision
+China_Turkiye_city_mapping(1).csv,China_Turkiye_city_mapping.csv (final notebook package version),1634,1634,True,True,1634,1634,Keep one canonical mapping; do not concatenate duplicates.

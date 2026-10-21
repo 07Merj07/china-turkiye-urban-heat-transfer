@@ -1,0 +1,43 @@
+year,product,method,period,country,valid_UrbanId_count,valid_UrbanId_x_year_count,missing_target_count,exclusion_notes
+2001,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2002,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2003,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2004,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2005,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2006,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2007,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2008,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2009,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2010,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2011,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2012,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2013,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2014,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2015,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2016,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2017,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2018,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2019,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2020,Mod2,MEA,22,China,1451,2902,0,No missing target values; full coverage for this year.
+2021,Mod2,MEA,22,China,1451,1451,0,No missing target values; full coverage for this year.
+2001,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2002,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2003,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2004,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2005,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2006,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2007,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2008,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2009,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2010,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2011,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2012,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2013,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2014,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2015,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year. This year overlaps with predictor variables (candidate modelling year).
+2016,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2017,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2018,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2019,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2020,Mod2,MEA,22,Türkiye,183,366,0,No missing target values; full coverage for this year.
+2021,Mod2,MEA,22,Türkiye,183,183,0,No missing target values; full coverage for this year.

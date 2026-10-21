@@ -1,0 +1,11 @@
+check,status,value,detail
+CityInfo rows,PASS,10196,Input rows preserved.
+CityInfo unique UrbanId,PASS,10196,No duplicate keys.
+Mapping rows,PASS,1634,Reviewed country assignments.
+Mapping unique UrbanId,PASS,1634,No duplicate keys.
+Mapping IDs absent from CityInfo,PASS,0,All mapping IDs exist in CityInfo.
+Coordinate/area mismatches,PASS,0,Absolute tolerance=1e-06; no automatic coordinate corrections.
+Country mapped: China,PASS,1451,Count from input mapping.
+Country mapped: Türkiye,PASS,183,Count from input mapping.
+CityInfo records without an explicit country mapping,INFO,8562,Left blank; no nearest-country inference was performed.
+Merged row count preserved,PASS,10196,Expected one output row for each CityInfo row.

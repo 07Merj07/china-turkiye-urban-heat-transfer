@@ -1,0 +1,6 @@
+filename,year,period,rows,unique_UrbanId,duplicate_UrbanId_rows,missing_Intensity_MEA,purpose
+Mod2_Nig_2001_22.csv,2001,22,10196,10196,0,63,sample only; not the complete 80-file analysis input
+Mod2_Nig_2012_22.csv,2012,22,10196,10196,0,22,sample only; not the complete 80-file analysis input
+Mod2_Nig_2012_6.csv,2012,6,10196,10196,0,62,sample only; not the complete 80-file analysis input
+Mod2_Nig_2012_7.csv,2012,7,10196,10196,0,287,sample only; not the complete 80-file analysis input
+Mod2_Nig_2012_8.csv,2012,8,10196,10196,0,198,sample only; not the complete 80-file analysis input

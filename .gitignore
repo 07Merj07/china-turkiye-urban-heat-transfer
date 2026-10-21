@@ -1,45 +1,44 @@
-
-# Python environments and cache
-.venv/
-venv/
+# Python / notebook caches
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+env/
 
-# Editor / operating system files
-.vscode/
-.DS_Store
-Thumbs.db
-
-# Local secrets and environment settings
+# Secrets / local configuration
 .env
 .env.*
 !.env.example
+.cdsapirc
+*credentials*.json
+*secret*.json
 
-# Full source dataset (download separately from the official Figshare page)
-data/UHII_dataset/
+# The full source dataset remains local; use the provided copy script.
+data/raw/UHII_dataset/*
+!data/raw/UHII_dataset/README.md
+!data/raw/UHII_dataset/.gitkeep
 
-# Large local dataset archives
-data/*.zip
-data/*.rar
-data/*.7z
+# External feature outputs are regenerated; commit only the reviewed country mapping.
+data/external_features/*.csv
+!data/external_features/China_Turkiye_city_mapping.csv
+data/external_features/*.nc
+data/external_features/appeears_work/
 
-# Redundant local example copy
-data/AMod2_Day_2001_30.csv
+# Generated Phase 2 outputs, temporary data, and backup copies
+outputs/phase2_outputs/*
+!outputs/phase2_outputs/README.md
+!outputs/phase2_outputs/.gitkeep
+outputs/previous_output_backups/
 
-# Temporary troubleshooting files
-data/write_test.txt
-data/export_test.csv
-data/UHII_quality_test.csv
-data/UHII_numeric_quality_test.csv
-data/UHII_numeric_quality_test10.csv
+# Large downloads and archives
+*.nc
+*.zip
+*.7z
+*.tar
+*.gz
 
-# Superseded reports in the data root
-data/UHII_quality_report.csv
-data/UHII_country_NA_report.csv
-data/UHII_numeric_quality_report.csv
-
-# General temporary artifacts
-*.tmp
-*.log
-*.bak
+# Included in the local all-in-one ZIP for safekeeping; do not commit historical or unverified local-only assets.
+/archive/
+/data/local_only/

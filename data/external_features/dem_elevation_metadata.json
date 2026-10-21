@@ -1,0 +1,11 @@
+{
+  "status": "canonical_table_validated",
+  "source": "Open-Meteo Elevation API / Copernicus DEM GLO-90",
+  "coordinate_signature": "e8c12a9ac3e425d2900d5d21d09ec68885fe23c91aeda0d5bc3f297187763d65",
+  "requested_cities": 1621,
+  "returned_rows": 1621,
+  "missing_elevation_rows": 0,
+  "file_sha256": "f7c81f167d49e0118af6a81aca8f7bc5c28644ed9c0a23f248cffa281809b2af",
+  "file_bytes": 96372,
+  "generated_at": "2026-10-18T20:11:11.952190"
+}

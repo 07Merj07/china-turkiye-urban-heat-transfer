@@ -1,0 +1,79 @@
+{
+  "status": "complete_imported_validated",
+  "request_fingerprint": "243ac0bef4da25c62d4f3647e1b6d41429c65bb87c93aae288fb35d256a0f09c",
+  "request_signature": {
+    "years": [
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "urban_ids_sha256": "af9ea2c18e4a32459e855206c4cb5f07194c901c6d7fe4bfe833344f29d06208",
+    "coordinates_sha256": "e8c12a9ac3e425d2900d5d21d09ec68885fe23c91aeda0d5bc3f297187763d65",
+    "product": "MOD13Q1.061",
+    "layers": [
+      "_250m_16_days_NDVI",
+      "_250m_16_days_VI_Quality"
+    ],
+    "months_requested": [
+      6,
+      7,
+      8
+    ],
+    "chunk_size": 1000,
+    "request_type": "point"
+  },
+  "task_ids": [
+    "a919a380-2bac-4613-91ea-3d96699a5d9f",
+    "c2717ee6-6643-485c-b48c-4c1f4dfba421"
+  ],
+  "rows": 226940,
+  "generated_at": "2026-10-18T20:30:00+03:00",
+  "file_sha256": "3e01f8d8c9f9e3a7e1b13e19955aa0d89ec69d149c3909dbd93bc397c533f339",
+  "file_bytes": 54594660,
+  "source": "NASA AppEEARS MOD13Q1.061; merged from two supplied completed result CSVs",
+  "source_files": [
+    "UHII-NDVI-JJA-2001-2020-batch1-MOD13Q1-061-results.csv",
+    "UHII-NDVI-JJA-2001-2020-batch2-MOD13Q1-061-results.csv"
+  ],
+  "source_request_layers_recorded_in_json": [
+    "_250m_16_days_NDVI"
+  ],
+  "validated_output_columns": [
+    "MOD13Q1_061__250m_16_days_NDVI",
+    "MOD13Q1_061__250m_16_days_VI_Quality"
+  ],
+  "coordinate_validation": "All 1621 UrbanIds and coordinates match the two supplied request JSON files; no duplicate ID-Date rows.",
+  "coverage": {
+    "unique_cities": 1621,
+    "years": [
+      2001,
+      2020
+    ],
+    "raw_records_per_city": 140,
+    "dates": [
+      "2001-05-25",
+      "2020-08-28"
+    ],
+    "jja_records": 194520,
+    "jja_records_per_city": 120,
+    "ndvi_fill_value_minus_3000_count": 1101
+  },
+  "notes": "The downloaded AppEEARS result CSVs contain both NDVI and VI_Quality fields, even though supplied request JSON layer lists name NDVI. Original request IDs are recorded above; the current notebook fingerprint is recorded for compatibility with its validator."
+}
