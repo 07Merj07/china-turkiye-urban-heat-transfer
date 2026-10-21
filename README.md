@@ -1,47 +1,103 @@
-# Can Urban Heat Models Cross Borders?
-## Quantifying the Transferability of Urban Heat Models Between China and Türkiye
+# Urban Heat Transfer Between China and Türkiye
 
-### Project aim
+**A reproducible research pipeline for cross-country transfer learning of Surface Urban Heat Island Intensity (SUHII).**
 
-This project will study whether a model trained using urban data from one country can predict urban heat island intensity (UHII) in another country. The planned comparison includes China-to-Türkiye transfer and Türkiye-to-China transfer. A possible target-country adaptation experiment will be considered after the shared features and validation plan are agreed.
+The project studies whether urban-heat patterns learned from Chinese cities can transfer to Turkish cities, and vice versa. The active Phase 2 workflow prepares the target, audits city-year records, creates external climate/environmental features, and compares baseline and enhanced transfer models.
 
-### Dataset
+## Research target
 
-The project uses the *Global Urban Heat Island Intensity Dataset* from the original Figshare record:
+- **Primary label:** `Intensity_MEA` — Modified Equal-Area SUHII, in °C.
+- **Product:** `Mod2` (MOD11A2 clear-sky land-surface temperature family), nighttime (`Nig`).
+- **Season:** period `22`, June–August (JJA).
+- **Years:** 2001–2020.
+- **Exact source-file pattern:** `Mod2_Nig_YYYY_PERIOD.csv`, with periods 6, 7, 8 and 22 for each year — 80 required files.
 
-- Dataset: https://figshare.com/articles/dataset/Global_Urban_Heat_Island_Intensity_Dataset/24821538
-- DOI: https://doi.org/10.6084/m9.figshare.24821538
-- Related paper: https://doi.org/10.1016/j.rse.2024.114343
+`AMod2` and `SMod2` are distinct product families. They are not renamed or substituted for `Mod2`.
 
-The full UHII dataset is large, so it is not included in this GitHub repository. Download it from the official source and place the extracted CSV files in `data/UHII_dataset/` when running the audit script.
+## Repository layout
 
-### Current data checks
+```text
+urban-heat-transfer/
+├── data/
+│   ├── raw/UHII_dataset/       # local-only; 80 source CSVs, ignored by Git
+│   ├── sample_uhi/UHII_dataset/ # 5 labelled source samples for inspection
+│   ├── reference/CityInfo.csv
+│   ├── external_features/China_Turkiye_city_mapping.csv
+│   ├── processed/CityInfo_with_Country.csv
+│   └── audit_reports/           # current merge audit + labelled historical summaries
+├── notebooks/
+│   ├── 01_Phase2_Core_Final.ipynb
+│   ├── 02_External_Features_Final.ipynb
+│   └── 03_Transfer_Experiments_Final.ipynb
+├── src/urban_heat_transfer/     # tested mapping/merge helpers
+├── scripts/                     # source-copy, data audit, and post-run validator
+├── outputs/phase2_outputs/      # generated locally; ignored by Git
+└── docs/                        # protocol, provenance, decisions, QA, and run guide
+```
 
-A structural audit was run on 5,372 UHII CSV files. Under the checks described in the audit notes, no structural, ID, expected-coverage, or unexpected non-`NA` numeric-format problems were found. This does not prove that every measurement is scientifically correct.
+## Quick start
 
-The current primary country sample uses direct spatial joins to country boundaries:
+### 1. Install Python packages
 
-- China: 1,441 urban units
-- Türkiye: 180 urban units
-- Total: 1,621 urban units
+```bash
+python -m pip install -r requirements.txt
+```
 
-The 83 urban units with blank country labels remain outside the primary comparison. This includes 13 units that received China or Türkiye labels in a separate nearest-country file. They are not added to the primary sample because their assignment method has not been fully confirmed.
+### 2. Copy the required source files (Windows)
 
-### Research status
+The full source archive is intentionally not committed to GitHub. In PowerShell, run from the repository root:
 
-The project is still in the research-design stage. The final UHII target method, indicator, year range, shared predictor set, validation design, and adaptation method have not yet been fixed. These decisions will be made after the cross-country feature review is complete. No model-performance results are reported in this repository at this stage.
+```powershell
+.\scripts\copy_required_uhi_files.ps1 -Source "C:\path\to\existing\urban-heat-transfer\data\UHII_dataset"
+```
 
-### Repository guide
+Replace the example path with the existing folder on your computer. The script prechecks all 80 filenames and existing-file hash conflicts before copying. It never moves, renames, or deletes source files.
 
-- `docs/DATASET_PROVENANCE.md` — source and download record.
-- `docs/DATA_QUALITY_AUDIT_NOTES.md` — data audit findings and current decisions.
-- `data/CityInfo.csv` — urban-unit reference table from the source dataset.
-- `data/CityInfo_with_Country.csv` — current primary country mapping.
-- `data/audit_reports/Country_Mapping_13_Row_Comparison.csv` — row-level comparison of the 13 disputed country labels.
-- `scripts/UHII_Final_Audit.ps1` — script used to check the local dataset files.
+Then audit the copied files:
 
-### Reproducibility note
+```bash
+python scripts/audit_uhi_sources.py
+```
 
-The audit script expects `data/CityInfo.csv`, `data/CityInfo_with_Country.csv`, and the extracted `data/UHII_dataset/` folder. The full dataset is not committed to GitHub; users must obtain it from the official Figshare page before running the full audit.
+A full ready-to-run source inventory should report all **80/80** exact `Mod2_Nig` filenames, readable CSVs, the required columns, and no duplicate `UrbanId` values. The five files under `data/sample_uhi/` are examples only; they cannot replace all 80 source inputs.
 
-See the data quality audit notes for details about missing values, the country mapping, coverage checks, and current limitations.
+### 3. Rebuild and test city-country mapping
+
+```bash
+python scripts/build_city_mapping.py
+python scripts/check_extreme_values.py  # review flags only; does not modify source data
+python -m unittest discover -s tests -v
+```
+
+The merge assigns country only through the explicit `UrbanId` mapping. Unmapped global city records remain unassigned; the code does not guess a country from the nearest city.
+
+### 4. Run the notebooks in Google Colab
+
+Place the entire `urban-heat-transfer` folder inside Google Drive's `MyDrive`, then open and run the notebooks in order:
+
+1. `notebooks/01_Phase2_Core_Final.ipynb`
+2. `notebooks/02_External_Features_Final.ipynb`
+3. `notebooks/03_Transfer_Experiments_Final.ipynb`
+
+In the first notebook cells, verify the printed project/data/output paths before continuing. The external-feature notebook requires credentials stored in Colab Secrets; see [`docs/LOCAL_RUN_GUIDE_TR.md`](docs/LOCAL_RUN_GUIDE_TR.md).
+
+After all three notebooks finish in Google Colab, run:
+
+```python
+!python /content/drive/MyDrive/urban-heat-transfer/scripts/phase2_validate_outputs.py --project-dir /content/drive/MyDrive/urban-heat-transfer
+```
+
+For a local run from the repository root, the equivalent command is `python scripts/phase2_validate_outputs.py --project-dir .`.
+
+The project is structurally ready for a full run, but **the entire 2001–2020 pipeline has not yet been completed on the full source archive**. The validator must return `GO` on the real project outputs and all warnings must be reviewed before reporting final research results.
+
+## What is and is not a final result
+
+- Historical source-audit summaries are explicitly stored under `data/audit_reports/historical_*` and are not current model outputs.
+- Previous `task7_transfer_results*.csv` tables are preserved separately outside the public repository package; do not cite them as final performance results just because the files exist.
+- The precomputed period-22 JJA product is the primary label. The monthly mean of June/July/August is a diagnostic; discrepancies are surfaced for review, not automatically deleted.
+- External features are point/grid-cell samples around city coordinates, not polygon-weighted citywide means. The methodological limitations are documented in `docs/RESEARCH_PROTOCOL.md` and the notebook audit notes.
+
+## Data citation and license
+
+Primary data: [Global Urban Heat Island Intensity Dataset, Figshare, DOI 10.6084/m9.figshare.24821538](https://doi.org/10.6084/m9.figshare.24821538). Follow the dataset provider's terms. A project-code license has intentionally not been chosen until all contributors agree; see [`docs/LICENSE_AND_CITATION.md`](docs/LICENSE_AND_CITATION.md).
